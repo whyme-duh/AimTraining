@@ -62,7 +62,7 @@ mouse_y = round(H/2)
 def menu():
     running = True
     while running:
-        #pygame.mixer.Sound.play(menu_sound)
+        pygame.mixer.Sound.play(menu_sound)
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
                 running = False
@@ -147,8 +147,8 @@ def play_again():
 def draw():
     # score
 
-    #pygame.mixer.Sound.stop(menu_sound)
-    #pygame.mixer.Sound.play(hit_sound[2])
+    pygame.mixer.Sound.stop(menu_sound)
+    pygame.mixer.Sound.play(hit_sound[2])
     global hit_shot, off_shot, total_shots
     hit_shot = 0
     off_shot = 0
@@ -192,7 +192,7 @@ def draw():
                     for i in range(num):
                         dis = math.sqrt((targets[i].x - m_x)**2 + (targets[i].y - m_y)**2)
                         if dis < targets[i].radius:
-                            #pygame.mixer.Sound.play(hit_sound[1])
+                            pygame.mixer.Sound.play(hit_sound[1])
                             hit_shot += 1
                             score = score + 1
                             if score > 10:
@@ -200,7 +200,7 @@ def draw():
                             targets.remove(targets[i])
                         else:
                             off_shot += 1
-                            #pygame.mixer.music.play(1)
+                            pygame.mixer.music.play(1)
                         total_shots = hit_shot + off_shot
         # for crosshair
         pygame.draw.line(win, color, (mouse_x, mouse_y + 5), (mouse_x, mouse_y - 5))
